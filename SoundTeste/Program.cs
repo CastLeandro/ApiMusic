@@ -1,21 +1,19 @@
-﻿
-string mensagemDeBoasVindas = "Boas vindas ao Music Player!";
-
-void ExibirMensagemDeBoasVindas(string mensagem)
+﻿using System;
+void calcMedia(float n1, float n2)
 {
-    Console.WriteLine("*******************--****************");
-    Console.WriteLine(mensagem);
-    Console.WriteLine("*******************--****************");
+ float media = (n1 + n2) / 2;
+            if (media > 6)
+            {
+                Console.WriteLine($"Parabéns! voce foi aprovado com a media {media}");
+            }
+            else
+            {
+                Console.WriteLine($"Voce foi reprovado com a media {media}");
+            }
 }
 
-void ExibirOpcoesDoMenu()
-{
-    Console.WriteLine("Digite 1 pra registrar uma banda");
-    Console.WriteLine("Digite 2 para listar todas as bandas");
-    Console.WriteLine("Digite 3 para exibir a média de uma banda");
-    Console.WriteLine("Digite 0 para sair");
-}
+        Console.WriteLine("Digite as duas notas do aluno: ");
+        float n1 = float.Parse(Console.ReadLine()!);
+        float n2 = float.Parse(Console.ReadLine()!);
 
-
-ExibirMensagemDeBoasVindas(mensagemDeBoasVindas);
-ExibirOpcoesDoMenu();
+        calcMedia(n1, n2);
