@@ -1,19 +1,45 @@
-﻿using System;
-void calcMedia(float n1, float n2)
+﻿string mensagemDeBoasVindas = "Boas vindas ao Music Player!";
+
+void ExibirMensagemDeBoasVindas(string mensagem)
 {
- float media = (n1 + n2) / 2;
-            if (media > 6)
-            {
-                Console.WriteLine($"Parabéns! voce foi aprovado com a media {media}");
-            }
-            else
-            {
-                Console.WriteLine($"Voce foi reprovado com a media {media}");
-            }
+    Console.WriteLine("*******************--****************");
+    Console.WriteLine(mensagem);
+    Console.WriteLine("*******************--**************** \n");
 }
 
-        Console.WriteLine("Digite as duas notas do aluno: ");
-        float n1 = float.Parse(Console.ReadLine()!);
-        float n2 = float.Parse(Console.ReadLine()!);
+void ExibirOpcoesDoMenu()
+{
+    Console.WriteLine("Digite 1 - para registrar uma banda");
+    Console.WriteLine("Digite 2 - para listar todas as bandas");
+    Console.WriteLine("Digite 3 - para exibir a média de uma banda");
+    Console.WriteLine("Digite 0 - para sair \n");
 
-        calcMedia(n1, n2);
+    Console.WriteLine("Digite a sua opção: ");
+
+    string opcao = Console.ReadLine()!;
+    int opcaoEscolhida = int.Parse(opcao);
+
+
+    switch (opcaoEscolhida)
+    {
+        case 1:
+            Console.WriteLine($"voce digitou a opcao: {opcao}");
+            break;
+        case 2:
+            Console.WriteLine($"voce digitou a opcao: {opcao}");
+            break;
+        case 3:
+            Console.WriteLine($"voce digitou a opcao: {opcao}");
+            break;
+        case 0:
+            Console.WriteLine($"voce digitou a opcao: {opcao}");
+            break;
+        default:
+            Console.WriteLine("Erro: Opção inválida!");
+            break;
+    }
+}
+
+
+ExibirMensagemDeBoasVindas(mensagemDeBoasVindas);
+ExibirOpcoesDoMenu();
