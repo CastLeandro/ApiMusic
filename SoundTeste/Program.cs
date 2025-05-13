@@ -35,7 +35,7 @@ void ExibirOpcoesDoMenu()
             Console.WriteLine($"voce digitou a opcao: {opcao}");
             break;
         default:
-            Console.WriteLine("Erro: Opção inválida!");
+            Console.WriteLine("Erro: Opção invál!");
             break;
     }
 }
