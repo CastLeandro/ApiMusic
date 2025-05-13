@@ -1,4 +1,5 @@
 ﻿string mensagemDeBoasVindas = "Boas vindas ao Music Player!";
+List<string> bandas = new List<string>();
 
 void ExibirMensagemDeBoasVindas(string mensagem)
 {
@@ -23,10 +24,10 @@ void ExibirOpcoesDoMenu()
     switch (opcaoEscolhida)
     {
         case 1:
-            Console.WriteLine($"voce digitou a opcao: {opcao}");
+            registrarBandas();
             break;
         case 2:
-            Console.WriteLine($"voce digitou a opcao: {opcao}");
+            listarBandas();
             break;
         case 3:
             Console.WriteLine($"voce digitou a opcao: {opcao}");
@@ -40,6 +41,54 @@ void ExibirOpcoesDoMenu()
     }
 }
 
+void registrarBandas()
+{
+    Console.Clear();
+    Console.WriteLine("Registro de bandas!");
+    Console.Write("Digite o Nome da banda que deseja registrar: ");
+    string nomeBanda = Console.ReadLine()!;
+    bandas.Add(nomeBanda);
+    Console.WriteLine($"A banda {nomeBanda} foi registrada com sucesso!");
+    Thread.Sleep(2000);
+    Console.Clear();
+    ExibirOpcoesDoMenu();
 
-ExibirMensagemDeBoasVindas(mensagemDeBoasVindas);
-ExibirOpcoesDoMenu();
+}
+
+void listarBandas()
+{   
+    if(bandas.Count == 0)
+    {
+        Console.WriteLine("Voce ainda não registrou nenhuma banda na sua lista!");
+        Thread.Sleep(2000);
+        Console.Clear();
+        ExibirOpcoesDoMenu();
+    }
+    else
+    {
+        Console.WriteLine("As bandas registradas até o momento são: \n");
+        foreach (string banda in bandas)
+        {
+            Console.WriteLine(banda);
+        }
+
+        Console.WriteLine("\nPressione alguma tecla para continuar...");
+        Console.ReadKey();
+        Console.Clear();
+        ExibirOpcoesDoMenu();
+    }
+
+}
+
+//ExibirMensagemDeBoasVindas(mensagemDeBoasVindas);
+//ExibirOpcoesDoMenu();
+
+void teste()
+{
+    List<int> numeros = new List<int>() { 1, 2, 3, 4, 5 };
+    int soma = numeros.Sum();
+
+    Console.WriteLine($"A soma dos números é {soma}");
+}
+
+teste();
