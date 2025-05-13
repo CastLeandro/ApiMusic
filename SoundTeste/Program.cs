@@ -36,7 +36,7 @@ void ExibirOpcoesDoMenu()
             Console.WriteLine($"voce digitou a opcao: {opcao}");
             break;
         default:
-            Console.WriteLine("Erro: Opção inválida!");
+            Console.WriteLine("Erro: Opção invál!");
             break;
     }
 }
@@ -80,15 +80,5 @@ void listarBandas()
 
 }
 
-//ExibirMensagemDeBoasVindas(mensagemDeBoasVindas);
-//ExibirOpcoesDoMenu();
-
-void teste()
-{
-    List<int> numeros = new List<int>() { 1, 2, 3, 4, 5 };
-    int soma = numeros.Sum();
-
-    Console.WriteLine($"A soma dos números é {soma}");
-}
-
-teste();
+ExibirMensagemDeBoasVindas(mensagemDeBoasVindas);
+ExibirOpcoesDoMenu();
