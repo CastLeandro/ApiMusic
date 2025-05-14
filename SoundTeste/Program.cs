@@ -19,6 +19,7 @@ void ExibirOpcoesDoMenu()
     Console.WriteLine("Digite 1 - para registrar uma banda");
     Console.WriteLine("Digite 2 - para listar todas as bandas");
     Console.WriteLine("Digite 3 - para dar nota a uma banda");
+    Console.WriteLine("Digite 4 - ver a média de uma banda");
     Console.WriteLine("Digite 0 - para sair \n");
 
     Console.WriteLine("Digite a sua opção: ");
@@ -38,8 +39,10 @@ void ExibirOpcoesDoMenu()
         case 3:
             avaliarUmaBanda();
             break;
+        case 4:
+            mediaBanda();
+            break;
         case 0:
-            Console.WriteLine($"voce digitou a opcao: {opcao}");
             break;
         default:
             Console.WriteLine("Erro: Opção invál!");
@@ -124,6 +127,37 @@ void exibirTituloOpcao(string titulo)
     string asteriscos = "".PadLeft(quantidadeDeLetras, '*');
 
     Console.Write($"{asteriscos}\n{titulo}\n{asteriscos}\n");
+}
+
+void mediaBanda()
+{
+    Console.Clear();
+    exibirTituloOpcao("Media das bandas!");
+    Console.WriteLine("Qual a banda que voce deseja saber a méda");
+    string consulta = Console.ReadLine()!;
+
+    string nomeBanda = bandas
+        .Where(b => b.Key
+        .StartsWith(consulta))
+        .Select(b => b.Key)
+        .FirstOrDefault() ?? "Banda nao registada";
+
+    if (nomeBanda.StartsWith("Banda nao"))
+    {
+        Console.WriteLine("Banda nao registrada na aplicação");
+        Thread.Sleep(2000);
+        Console.Clear();
+        mediaBanda();
+    }
+    else
+    {
+        double media = bandas[nomeBanda].Average();
+        Console.WriteLine($"A media da banda {nomeBanda} é de {media}");
+        Console.WriteLine("Pressione algum botão para continuar...");
+        Console.ReadKey();
+        Console.Clear();
+        ExibirOpcoesDoMenu();
+    }
 }
 
 ExibirMensagemDeBoasVindas(mensagemDeBoasVindas);
